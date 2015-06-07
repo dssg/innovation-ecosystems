@@ -9,6 +9,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/custom.css"/>
+    <script type="text/javascript" src="js/checkboxgroup.js"></script>
     <script src="https://cdn.rawgit.com/uscensusbureau/citysdk/Release0.7/js/citysdk.js"></script>
     <script src="https://cdn.rawgit.com/uscensusbureau/citysdk/Release0.7/js/citysdk.census.js"></script>
     <!--<link rel="stylesheet" href="css/style.css"/>-->
@@ -44,9 +45,9 @@
     </div>
     <div class='container-fluid'>
       <div class='row'>
-        <div class='col-md-offset-1 col-md-10'>
+        <div class='col-md-12'>
           <center>
-          <h2>Discover tech spaces to connect with others around you!</h2>
+          <h1>Discover tech spaces to connect with others around you!</h1>
           <hr class="intro-divider">
           </center>
         </div>
@@ -71,85 +72,64 @@
               </label>
             </p>
 
+<form action="index.html">
+  <script type="text/javascript">
+  var cbTypeMapGroup = new CheckBoxGroup();
+  cbTypeMapGroup.addToGroup("cbType1");
+  cbTypeMapGroup.addToGroup("cbType2");
+  cbTypeMapGroup.addToGroup("cbType3");
+  cbTypeMapGroup.addToGroup("cbType4");
+  cbTypeMapGroup.addToGroup("cbType5");
+  cbTypeMapGroup.addToGroup("cbType6");
+  cbTypeMapGroup.setControlBox("cbType");
 
-            <ul class='inputs-list unstyled'>
-  <h4><i>---Google Maps</i></h4>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType1' />
-      <span class='filter-box filter-orange'></span>
-      Schools
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType2' />
-      <span class='filter-box filter-orange'></span>
-      Libraries
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType3' />
-      <span class='filter-box filter-green'></span>
-      Parks
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType4' />
-      <span class='filter-box filter-red'></span>
-      Hospitals
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType5' />
-      <span class='filter-box filter-gray'></span>
-      Coffee shops
-    </label>
-  </li>  
-   <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType6' />
-      <span class='filter-box filter-gray'></span>
-      Government Offices
-    </label>
-  </li> 
-    <h4><i>---Tech Events</i></h4>
-  <li>    
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType7' />
-      <span class='filter-box filter-red'></span>
-      Tech Meetups
-    </label>
-  </li>
-    <h4><i>---Tech Centers</i></h4>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType8' />
-      <span class='filter-box filter-green'></span>
-      Tech Startups
-    </label>
-  </li>
+  var cbTypeEventsGroup = new CheckBoxGroup();
+  cbTypeEventsGroup.addToGroup("cbType7");
+  cbTypeEventsGroup.setControlBox("cbType");
 
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType9' />
-      <span class='filter-box filter-yellow'></span>
-      Innovaition Centers
-    </label>
-  </li>
+  var cbTypeCentersGroup = new CheckBoxGroup();
+  cbTypeCentersGroup.addToGroup("cbType8");
+  cbTypeCentersGroup.addToGroup("cbType9");
+  cbTypeCentersGroup.setControlBox("cbType");
 
-    <h4><i>---Neighborhood Information</i></h4>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType10' />
-      <span class='filter-box filter-darkgray'></span>
-      Tract 
-    </label>
-  </li>
-</ul>
+  var cbTypeNeighborhoodGroup = new CheckBoxGroup();
+  cbTypeNeighborhoodGroup.addToGroup("cbType10");
+  cbTypeNeighborhoodGroup.setControlBox("cbType");
+  </script>
+
+  <input type="checkbox" id="cbType" name="cbType" onClick="cbTypeMapGroup.check(this);">&nbsp;<b>Google Maps</b><br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType1" name="cbType1" onClick="cbTypeMapGroup.check(this);">
+  <span class='filter-box filter-orange'></span>&nbsp;Schools<br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType2" name="cbType2" onClick="cbTypeMapGroup.check(this);">
+  <span class='filter-box filter-orange'></span>&nbsp;Libraries<br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType3" name="cbType3" onClick="cbTypeMapGroup.check(this);">
+  <span class='filter-box filter-green'></span>&nbsp;Parks<br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType4" name="cbType4" onClick="cbTypeMapGroup.check(this);">
+  <span class='filter-box filter-red'></span>&nbsp;Hospitals<br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType5" name="cbType5" onClick="cbTypeMapGroup.check(this);">
+  <span class='filter-box filter-gray'></span>&nbsp;Coffee Shops<br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType6" name="cbType6" onClick="cbTypeMapGroup.check(this);">
+  <span class='filter-box filter-gray'></span>&nbsp;Government Offices<br />
+  <br />
+
+  <input type="checkbox" id="cbType" name="cbType" onClick="cbTypeEventsGroup.check(this);">&nbsp;<b>Tech Events</b><br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType7" name="cbType7" onClick="cbTypeEventsGroup.check(this);">
+  <span class='filter-box filter-red'></span>&nbsp;Tech Meetups<br />
+  <br />
+
+  <input type="checkbox" id="cbType" name="cbType" onClick="cbTypeCentersGroup.check(this);">&nbsp;<b>Tech Centers</b><br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType8" name="cbType8" onClick="cbTypeCentersGroup.check(this);">
+  <span class='filter-box filter-green'></span>&nbsp;Tech Startups<br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType9" name="cbType9" onClick="cbTypeCentersGroup.check(this);">
+  <span class='filter-box filter-yellow'></span>&nbsp;Innovation Centers<br />
+  <br />
+
+  <input type="checkbox" id="cbType" name="cbType" onClick="cbTypeNeighborhoodGroup.check(this);">&nbsp;<b>Neighborhood Information</b><br />
+  &nbsp;&nbsp;&nbsp;<input type="checkbox" id="cbType10" name="cbType10" onClick="cbTypeNeighborhoodGroup.check(this);">
+  <span class='filter-box filter-darkgray'></span>&nbsp;Tract<br />
+  <br />
+</form>
+
 
             <!-- Reid checkbox filter
             <h4>
@@ -228,6 +208,7 @@
     </div>
 
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+
     <script type="text/javascript" src="js/jquery.address.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
@@ -239,7 +220,7 @@
             offsetTop = 0; // Calculate the top offset
         
           //$('#map_canvas').css('height', (h - offsetTop));
-          $('#map_canvas').css('height', 425);
+          $('#map_canvas').css('height', 552);
         }).resize();
         
         $(function() {
