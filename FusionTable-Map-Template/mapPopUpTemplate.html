@@ -1,40 +1,68 @@
 {template .contents}
-<div class='googft-info-window'>
-<b>category:</b>{$data.value.category} <br/>
-{if $data.value['census tract']}
-<b>census tract:</b> {$data.value['census tract']} <br/>
-{/if}
-{if $data.value['B01001_005E']}
-<b>B01001_005E: </b> {$data.value['B01001_005E']} <br/>
-{/if}
-{if $data.value['B01001_029E']}
-<b>B01001_029E: </b> {$data.value['B01001_029E']} <br/>
-{/if}
-{if $data.value['B01001_030E']}
-<b>B01001_030E: </b> {$data.value['B01001_030E']} <br/>
-{/if}
-{if $data.value['population']}
-<b>population in census tract: </b> {$data.value['population']} <br/>
-{/if}
-{if $data.value['education_ged']}
-<b>ged in census tract: </b> {$data.value['education_ged']} <br/>
-{/if}
-{if $data.value['education_high_school']}
-<b>high school in census tract: </b> {$data.value['education_high_school']} <br/>
-{/if}
-{if $data.value['name']}
-<b>name: </b> {$data.value['name']} <br/>
-{/if}
-{if $data.value['formatted_address']}
-<b>address: </b> {$data.value['formatted_address']} <br/>
-{/if}
-{if $data.value['formatted_phone_number']}
-<b>phone_number: </b> {$data.value['formatted_phone_number']} <br/>
-{/if}
-{if $data.value['website']}
-<b>website: </b> {$data.value['website']} <br/>
-{/if}
-{if $data.value['rating']}
-<b>rating: </b> {$data.value['rating']} / 5 <br/>
-{/if}
+<div style="overflow:auto" class='googft-info-window'>
+  {if $data.value.name}
+    <div style="color:#000099;font-size:150%">{$data.value.name}</div>
+  {/if}
+  {if $data.value.address}
+    {$data.formatted.address} <br/>
+  {/if}
+  {if $data.value.website}
+    <a href="_blank">{$data.value.website}</a><br/>
+  {/if}
+  {if $data.value.Category}
+    <b>Category:</b> {$data.value.Category} <br/>
+  {/if}
+  {if $data.value.Source}
+    <b>Source:</b> {$data.value.Source} <br/>
+  {/if}
+  {if $data.value.population 
+   or $data.value.poverty
+   or $data.value.education_ged
+   or $data.value.education_high_school
+   or $data.value.B01001_005E
+   or $data.value.B01001_006E
+   or $data.value.B01001_029E
+   or $data.value.B01001_030E}
+    <hr>
+    <div style="font-size:115%">Census Tract Info:</div>
+    <div style="font-size:85%">(Units: Number of Individuals...)</div>
+    {if $data.value.population}
+      <b>Population:</b> {$data.value.population} <br/>
+    {/if}
+    {if $data.value.poverty}
+      <b>Poverty:</b> {$data.value.poverty} <br/>
+    {/if}
+    {if $data.value.education_ged}
+      <b>GED Diploma:</b> {$data.value.education_ged} <br/>
+    {/if}
+    {if $data.value.education_high_school}
+      <b>High School Diploma:</b> {$data.value.education_high_school} <br/>
+    {/if}
+    {if $data.value.B01001_005E}
+      <b>Males 10-14:</b> {$data.value.B01001_005E} <br/>
+    {/if}
+    {if $data.value.B01001_006E}
+      <b>Males 15-17:</b> {$data.value.B01001_006E} <br/>
+    {/if}
+    {if $data.value.B01001_029E}
+      <b>Females 10-14:</b> {$data.value.B01001_029E} <br/>
+    {/if}
+    {if $data.value.B01001_030E}
+      <b>Females 15-17:</b> {$data.value.B01001_030E} <br/>
+    {/if}
+    <!--Unsure of column name format -->
+    {if $data.value['B01001_005E (male 10-14)']}
+      <b>Males 10-14:</b> {$data.value['B01001_005E (male 10-14)']} <br/>
+    {/if}
+    {if $data.value['B01001_006E (male 15-17)']}
+      <b>Males 15-17:</b> {$data.value['B01001_006E (male 15-17)']} <br/>
+    {/if}
+    {if $data.value['B01001_029E (female 10-14)']}
+     <b>Females 10-14:</b> {$data.value['B01001_029E (female 10-14)']} <br/>
+    {/if}
+    {if $data.value['B01001_030E (female 15-17)']}
+      <b>Females 15-17:</b> {$data.value['B01001_030E (female 10-14)']} <br/>
+    {/if}
+  {/if}
+</div>
 {/template}
