@@ -189,7 +189,8 @@ if ( $("#cbType4").is(':checked')) tempWhereClause.push("hospital");
 if ( $("#cbType5").is(':checked')) tempWhereClause.push("cafe");
 if ( $("#cbType6").is(':checked')) tempWhereClause.push("local_government_office");
 if ( $("#cbType7").is(':checked')) tempWhereClause.push("Meetup");
-if ( $("#cbType8").is(':checked')) tempWhereClause.push("Innovation Center");
+if ( $("#cbType8").is(':checked')) tempWhereClause.push("Tech Center");
+if ( $("#cbType9").is(':checked')) tempWhereClause.push("Innovation Center");
 
 
 self.whereClause += " AND " + type_column + " IN ('" + tempWhereClause.join("','") + "')";
