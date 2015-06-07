@@ -1,0 +1,277 @@
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Droid Sans', 'Liberation Sans', FreeSans, 'Helvetica Neue LT Std', 'Helvetica LT Std', Helvetica, Arial, Tahoma, 'Lucida Grande', 'Lucida Sans', sans-serif;
+}
+
+a {
+  color: #29f;
+}
+
+#ipad, #iphone, #iphone5 {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+
+#ipad.landscape {
+  background: url('ipad/landscape.png');
+  width: 1108px;
+  height: 852px;
+}
+
+#ipad.portrait {
+  background: url('ipad/portrait.png');
+  width: 852px;
+  height: 1108px;
+}
+
+#iphone.landscape {
+  background: url('iphone/landscape.png');
+  width: 713px;
+  height: 365px;
+}
+
+#iphone.portrait {
+  background: url('iphone/portrait.png');
+  width: 365px;
+  height: 713px;
+}
+
+#iphone5.landscape {
+  background: url('iphone5/landscape.png');
+  width: 801px;
+  height: 365px;
+}
+
+#iphone5.portrait {
+  background: url('iphone5/portrait.png');
+  width: 365px;
+  height: 801px;
+}
+
+#ipad #kbd {
+  position: absolute;
+  left: 42px;
+  top: 106px;
+  display: none;
+  z-index: 10;
+}
+
+#iphone #kbd {
+  position: absolute;
+  display: none;
+  z-index: 10;
+}
+
+#iphone5 #kbd {
+  position: absolute;
+  display: none;
+  z-index: 10;
+}
+
+#ipad.landscape #kbd {
+  background: url('ipad/landscape_kbd.png');
+  width: 1024px;
+  height: 704px;
+}
+
+#ipad.portrait #kbd {
+  background: url('ipad/portrait_kbd.png');
+  width: 768px;
+  height: 960px;
+}
+
+#iphone.landscape #kbd {
+  background: url('iphone/landscape_kbd.png');
+  left: 118px;
+  top: 101px;
+  width: 480px;
+  height: 240px;
+}
+
+#iphone.portrait #kbd {
+  background: url('iphone/portrait_kbd.png');
+  left: 24px;
+  top: 198px;
+  width: 320px;
+  height: 400px;
+}
+
+#iphone5.landscape #kbd {
+  background: url('iphone5/landscape_kbd.png');
+  left: 118px;
+  top: 101px;
+  width: 568px;
+  height: 240px;
+}
+
+#iphone5.portrait #kbd {
+  background: url('iphone5/portrait_kbd.png');
+  left: 24px;
+  top: 198px;
+  width: 320px;
+  height: 488px;
+}
+
+#ipad #url {
+  position: absolute;
+  left: 235px;
+  top: 73px;
+  height: 21px;
+  background: #fff;
+  border: none;
+  font-family: 'Droid Sans', 'Liberation Sans', FreeSans, 'Helvetica Neue LT Std', 'Helvetica LT Std', Helvetica, Arial, Tahoma, 'Lucida Grande', 'Lucida Sans', sans-serif;
+}
+
+#iphone #url {
+  position: absolute;
+  height: 21px;
+  background: #fff;
+  border: none;
+  font-family: 'Droid Sans', 'Liberation Sans', FreeSans, 'Helvetica Neue LT Std', 'Helvetica LT Std', Helvetica, Arial, Tahoma, 'Lucida Grande', 'Lucida Sans', sans-serif;
+}
+
+#iphone5 #url {
+  position: absolute;
+  height: 21px;
+  background: #fff;
+  border: none;
+  font-family: 'Droid Sans', 'Liberation Sans', FreeSans, 'Helvetica Neue LT Std', 'Helvetica LT Std', Helvetica, Arial, Tahoma, 'Lucida Grande', 'Lucida Sans', sans-serif;
+}
+
+#ipad.landscape #url {
+  width: 512px;
+}
+
+#ipad.portrait #url {
+  width: 350px;
+}
+
+#iphone.landscape #url {
+  left: 130px;
+  top: 67px;
+  width: 292px;
+}
+
+#iphone.portrait #url {
+  left: 35px;
+  top: 164px;
+  width: 188px;
+}
+
+#iphone5.landscape #url {
+  left: 130px;
+  top: 67px;
+  width: 292px;
+}
+
+#iphone5.portrait #url {
+  left: 35px;
+  top: 164px;
+  width: 188px;
+}
+
+#ipad #frame {
+  border: none;
+  background: #fff;
+  position: absolute;
+  left: 42px;
+  top: 138px;
+}
+
+#iphone #frame {
+  border: none;
+  background: #fff;
+  position: absolute;
+}
+
+#iphone5 #frame {
+  border: none;
+  background: #fff;
+  position: absolute;
+}
+
+#ipad.landscape #frame {
+  width: 1024px;
+  height: 672px;
+}
+
+#ipad.portrait #frame {
+  width: 768px;
+  height: 928px;
+}
+
+#iphone.landscape #frame {
+  width: 480px;
+  height: 208px;
+  left: 118px;
+  top: 101px;
+}
+
+#iphone.portrait #frame {
+  width: 320px;
+  height: 356px;
+  left: 24px;
+  top: 198px;
+}
+
+#iphone5.landscape #frame {
+  width: 568px;
+  height: 208px;
+  left: 118px;
+  top: 101px;
+}
+
+#iphone5.portrait #frame {
+  width: 320px;
+  height: 444px;
+  left: 24px;
+  top: 198px;
+}
+
+.info {
+  margin: 16px;
+  text-align: center;
+}
+
+.buttons {
+  width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+  display: block;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button#rotate {
+  background: url('rotate.png');
+}
+
+.button#to_ipad {
+  background: url('ipad/button.png');
+}
+
+.button#to_iphone {
+  background: url('iphone/button.png');
+}
+
+.button#to_iphone5 {
+  background: url('iphone5/button.png');
+}
+
+.clear {
+  clear: both;
+}
+
+#frame::-webkit-scrollbar { width: 4px; height: 4px; background: transparent; }
+#frame::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.75); -webkit-border-radius: 4px; border-radius: 4px; width: 4px; height: 4px; }
