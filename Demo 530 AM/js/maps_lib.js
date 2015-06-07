@@ -178,15 +178,17 @@
         var address = $("#search_address").val();
         self.searchRadius = $("#search_radius").val();
         self.whereClause = self.locationColumn + " not equal to ''";
-        
+
         //-----custom filters-----
         var type_column = "'Category'";
 var tempWhereClause = [];
 if ( $("#cbType1").is(':checked')) tempWhereClause.push("university");
 if ( $("#cbType2").is(':checked')) tempWhereClause.push("library");
 if ( $("#cbType3").is(':checked')) tempWhereClause.push("park");
-if ( $("#cbType4").is(':checked')) tempWhereClause.push("Meetup");
-if ( $("#cbType5").is(':checked')) tempWhereClause.push("Innovation Center");
+if ( $("#cbType4").is(':checked')) tempWhereClause.push("hospital");
+if ( $("#cbType5").is(':checked')) tempWhereClause.push("cafe");
+if ( $("#cbType6").is(':checked')) tempWhereClause.push("Meetup");
+if ( $("#cbType7").is(':checked')) tempWhereClause.push("Innovation Center");
 
 self.whereClause += " AND " + type_column + " IN ('" + tempWhereClause.join("','") + "')";
         //-----end of custom filters-----
