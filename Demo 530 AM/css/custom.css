@@ -94,7 +94,7 @@ canvas {-ms-touch-action: double-tap-zoom;}
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100%;
+    height: 1200px; /* TODO: dyanmic height */;
     opacity : 0.6;
     z-index: -1;
 }
