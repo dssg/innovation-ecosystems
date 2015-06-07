@@ -1,9 +1,11 @@
 <html>
 
 <head>
-<script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/uscensusbureau/citysdk/Release0.7/js/citysdk.js"></script>
     <script src="https://cdn.rawgit.com/uscensusbureau/citysdk/Release0.7/js/citysdk.census.js"></script>
+    <script src="jquery-2.1.4.js"></script>
+
 <script>
 var sdk, census;
 
@@ -11,32 +13,113 @@ $(document).ready(function() {
     sdk = new CitySDK();
     census = sdk.modules.census;
     census.enable("ac6b82b6abc39664978d7c30d8e9772bf34ced02");
+    //read_file();
+    parseTheThingie();
 });
 
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}          
+
+
+/*
+function read_file(){
+    var data=[]
+    var file='locations.csv';
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                var lines=allText.split('\n');
+                for(var i = 0;i < lines.length;i++){
+                    var entry=lines[i].split(',');
+                    var text="{lat:"+entry[0]+", lng:"+entry[1]+"},"
+                    data.push(text);
+                }
+            }
+        }
+    }
+    alert(data);
+    rawFile.send(null);
+}
+*/
+
+function replaceAll(find, replace, str) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
+function decodeHtml(html_text) {
+    var txt=replaceAll("%22","\"",html_text);
+    return txt;
+}
+
 function parseTheThingie() {
-    var data = [{lat: 38.9047, lng: -77.0164}, {lat:37.5333,lng:-77.4667} ];
+    var temp_data=getUrlParameter('data');
+    temp_data=decodeHtml(temp_data);
+    data=JSON.parse(temp_data);
+    alert(data);
+    //var data = [{lat: 38.9047, lng: -77.0164}, {lat:37.5333,lng:-77.4667} ];
     
     //Ends up being an array of strings, representing the rows of your CSV
-    var csv = [];    
+    var csv=[]
+
+    count=data.length;
+
     data.forEach(function(coord) {
         var request = {
             lat: coord.lat,
             lng: coord.lng,
             level: "tract",
             variables: [
-                "income",
-                "age" 
+                "B01001_005E",
+                "B01001_006E",
+                "B01001_029E",
+                "B01001_030E",
+                "population",
+                "education_ged",
+                "education_high_school",
+                "poverty"
             ]
         };
         
+
+
         census.APIRequest(request, function(response) {
-            var newRowString = response.data[0].income + "," + response.data[0].age;
+            var newRowString = response.data[0].income + "," + response.data[0].age + "," + response.data[0].B01001_005E + "," + response.data[0].B01001_006E + "," + response.data[0].B01001_029E + "," + response.data[0].B01001_030E + "," + response.data[0].population + "," + response.data[0].education_ged + "," + response.data[0].education_high_school + "," + response.data[0].poverty;
+            alert(newRowString);
             csv.push(newRowString);
+            count--;
+            if(count==0) done(csv,data.length);
         });
     });
+}
 
-    return csv;
-};
+function done(csv,len_data){
+    alert(csv);
+    var csvContent = "data:text/csv;charset=utf-8,";
+    csv.forEach(function(infoArray, index){
+        dataString =infoArray;
+        csvContent += index < len_data ? dataString+ "\n" : dataString;
+    });     
+    var encodedUri = encodeURI(csvContent);
+    window.open(encodedUri);
+}
+    
 </script>
 
 </head>
