@@ -100,7 +100,7 @@ function parseTheThingie() {
 
 
         census.APIRequest(request, function(response) {
-            var newRowString = response.data[0].income + "," + response.data[0].age + "," + response.data[0].B01001_005E + "," + response.data[0].B01001_006E + "," + response.data[0].B01001_029E + "," + response.data[0].B01001_030E + "," + response.data[0].population + "," + response.data[0].education_ged + "," + response.data[0].education_high_school + "," + response.data[0].poverty;
+            var newRowString = response.data[0].B01001_005E + "," + response.data[0].B01001_006E + "," + response.data[0].B01001_029E + "," + response.data[0].B01001_030E + "," + response.data[0].population + "," + response.data[0].education_ged + "," + response.data[0].education_high_school + "," + response.data[0].poverty;
             alert(newRowString);
             csv.push(newRowString);
             count--;
