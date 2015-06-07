@@ -87,7 +87,7 @@ canvas {-ms-touch-action: double-tap-zoom;}
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("/Users/reidjohnson/dssg/github/FusionTable-Map-Template/images/chicago-background.jpeg");
+    background-image: url("../images/chicago-background.jpeg");
     background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
