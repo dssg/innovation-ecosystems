@@ -1,0 +1,40 @@
+{template .contents}
+<div class='googft-info-window'>
+<b>category:</b>{$data.value.category} <br/>
+{if $data.value['census tract']}
+<b>census tract:</b> {$data.value['census tract']} <br/>
+{/if}
+{if $data.value['B01001_005E']}
+<b>B01001_005E: </b> {$data.value['B01001_005E']} <br/>
+{/if}
+{if $data.value['B01001_029E']}
+<b>B01001_029E: </b> {$data.value['B01001_029E']} <br/>
+{/if}
+{if $data.value['B01001_030E']}
+<b>B01001_030E: </b> {$data.value['B01001_030E']} <br/>
+{/if}
+{if $data.value['population']}
+<b>population in census tract: </b> {$data.value['population']} <br/>
+{/if}
+{if $data.value['education_ged']}
+<b>ged in census tract: </b> {$data.value['education_ged']} <br/>
+{/if}
+{if $data.value['education_high_school']}
+<b>high school in census tract: </b> {$data.value['education_high_school']} <br/>
+{/if}
+{if $data.value['name']}
+<b>name: </b> {$data.value['name']} <br/>
+{/if}
+{if $data.value['formatted_address']}
+<b>address: </b> {$data.value['formatted_address']} <br/>
+{/if}
+{if $data.value['formatted_phone_number']}
+<b>phone_number: </b> {$data.value['formatted_phone_number']} <br/>
+{/if}
+{if $data.value['website']}
+<b>website: </b> {$data.value['website']} <br/>
+{/if}
+{if $data.value['rating']}
+<b>rating: </b> {$data.value['rating']} / 5 <br/>
+{/if}
+{/template}
