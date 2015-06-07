@@ -12,9 +12,6 @@
   {if $data.value.Category}
     <b>Category:</b> {$data.value.Category} <br/>
   {/if}
-  {if $data.value.Source}
-    <b>Source:</b> {$data.value.Source} <br/>
-  {/if}
   {if $data.value.population 
    or $data.value.poverty
    or $data.value.education_ged
@@ -25,18 +22,17 @@
    or $data.value.B01001_030E}
     <hr>
     <div style="font-size:115%">Census Tract Info:</div>
-    <div style="font-size:85%">(Units: Number of Individuals...)</div>
     {if $data.value.population}
       <b>Population:</b> {$data.value.population} <br/>
     {/if}
     {if $data.value.poverty}
-      <b>Poverty:</b> {$data.value.poverty} <br/>
+      <b>in Poverty:</b> {$data.value.poverty} <br/>
     {/if}
     {if $data.value.education_ged}
-      <b>GED Diploma:</b> {$data.value.education_ged} <br/>
+      <b>with GED Diploma:</b> {$data.value.education_ged} <br/>
     {/if}
     {if $data.value.education_high_school}
-      <b>High School Diploma:</b> {$data.value.education_high_school} <br/>
+      <b>with High School Diploma:</b> {$data.value.education_high_school} <br/>
     {/if}
     {if $data.value.B01001_005E}
       <b>Males 10-14:</b> {$data.value.B01001_005E} <br/>
