@@ -7,33 +7,32 @@ YOUR_API_KEY = 'AIzaSyC_vbziHvd_TY1i4qknEFHGaWOYheAdRUA'
 google_places = GooglePlaces(YOUR_API_KEY)
 
 df = pd.read_csv('../googleDS_chicago.csv')
-interesting = ['library','university','school','park','museum','church']
-interesting_types = [types.TYPE_LIBRARY, types.TYPE_UNIVERSITY, 
-										types.TYPE_SCHOOL, types.TYPE_PARK,
-										types.TYPE_MUSEUM, types.TYPE_CHURCH]
+
+
+interesting = ["church", "school", "park", "cafe",
+	"local_government_office", "hospital", "university", "library", "synagogue"]
+
 places_to_find = df[df.category.isin(interesting)]
 del df
+
+myColumns = ['name','listOfTypes','address',
+			'phone','website','rating','lat','lng','latlng']
 
 with open('test.csv', 'wb') as fp:
 
 	a = csv.writer(fp, delimiter=',')
-	rows = []
-	#rows.append(['name','kind','address',
-	#		'phone','website','rating','lat','lng','latlng'])
 
-	a.writerow(['name','kind','address',
-			'phone','website','rating','lat','lng','latlng'])
+	a.writerow(myColumns)
+	rows = []
 
 	for idx, ofInterest in places_to_find.iterrows():
 
 		coord = {'lat': ofInterest.y, 'lng': ofInterest.x}
 
 		query_result = google_places.nearby_search(
-			lat_lng=coord, types=[types.TYPE_LIBRARY, types.TYPE_UNIVERSITY, 
-										types.TYPE_SCHOOL, types.TYPE_PARK,
-										types.TYPE_MUSEUM, types.TYPE_CHURCH], radius = 10)
+			lat_lng=coord, types=interesting, radius = 10)
 
-		for place in query_result.places[:1]:
+		for place in query_result.places:
 			place.get_details()
 		#    print json.dumps(place.details, sort_keys=True, indent=4, separators=(',', ': '))
 
@@ -43,17 +42,17 @@ with open('test.csv', 'wb') as fp:
 				# converting json to csv
 
 			if "name" in place.details:
-				row.append(place.details[u'name'])
+				row.append(place.details[u'name'].encode('utf-8'))
 			else:
 					row.append('')
 
 			if "types" in place.details:
-				row.append(place.details[u'types'][0])
+				row.append(', '.join(sorted(place.details[u'types'])))
 			else:
 				row.append('')
 
 			if "formatted_address" in place.details:
-				row.append(place.details[u'formatted_address'])
+				row.append(place.details[u'formatted_address'].encode('utf-8'))
 			else:
 				row.append('')
 
@@ -63,7 +62,7 @@ with open('test.csv', 'wb') as fp:
 				row.append('')
 
 			if "website" in place.details:
-				row.append(place.details[u'website'])
+				row.append(place.details[u'website'].encode('utf-8'))
 			else:
 				row.append('')
 
@@ -88,8 +87,12 @@ with open('test.csv', 'wb') as fp:
 
 			#rows.append(row)
 
-			a.writerow(row)
-			fp.flush()
+			try:
+				a.writerow(row)
+				rows.append(row)
+				fp.flush()
+			except UnicodeEncodeError:
+				print "skipping a row for Unicode stuff"
 
 
 '''
@@ -102,6 +105,7 @@ row.append(period['open'][u'time']
 
 if "open" in place.details[u'opening_hours']:
 '''          
+outDf = pd.DataFrame(rows,columns = myColumns)
+outDf = outDf.drop_duplicates()
 
-
-
+outDf.to_csv('test_with_details.csv', index=False)
