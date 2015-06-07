@@ -64,6 +64,9 @@ a:hover { color: ##1abc9c; }
 .filter-blue { background-color: #5781FC; }
 .filter-purple { background-color: #7C54FB; }
 .filter-red { background-color: #FB6353; }
+.filter-orange { background-color: #FFA500; }
+
+
 
 canvas {-ms-touch-action: double-tap-zoom;}
 

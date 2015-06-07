@@ -180,6 +180,19 @@
         self.whereClause = self.locationColumn + " not equal to ''";
         
         //-----custom filters-----
+        var type_column = "'Category'";
+var tempWhereClause = [];
+if ( $("#cbType1").is(':checked')) tempWhereClause.push("university");
+if ( $("#cbType2").is(':checked')) tempWhereClause.push("library");
+if ( $("#cbType3").is(':checked')) tempWhereClause.push("park");
+if ( $("#cbType4").is(':checked')) tempWhereClause.push("Meetup");
+if ( $("#cbType5").is(':checked')) tempWhereClause.push("Innovation Center");
+
+self.whereClause += " AND " + type_column + " IN ('" + tempWhereClause.join("','") + "')";
+        //-----end of custom filters-----
+
+/* Reid filter   
+        //-----custom filters-----
 
         var type_column = "'sectors_facet'";
         var tempWhereClause = [];
@@ -189,7 +202,7 @@
         self.whereClause += " AND " + type_column + " IN ('" + tempWhereClause.join("','") + "')";
 
         //-----end of custom filters-----
-
+*/
         self.getgeoCondition(address, function (geoCondition) {
             self.whereClause += geoCondition;
             self.submitSearch(self.whereClause, self.map);

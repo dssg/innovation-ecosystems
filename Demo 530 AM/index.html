@@ -72,7 +72,46 @@
             </p>
 
             <br />
+            <ul class='inputs-list unstyled'>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType1' />
+      <span class='filter-box filter-orange'></span>
+      Schools
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType2' />
+      <span class='filter-box filter-orange'></span>
+      Libraries
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType3' />
+      <span class='filter-box filter-green'></span>
+      Parks
+    </label>
+  </li>
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType4' />
+      <span class='filter-box filter-purple'></span>
+      Tech Events
+    </label>
+  </li>
 
+  <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType5' />
+      <span class='filter-box filter-yellow'></span>
+      Innovaition Centers
+    </label>
+  </li>
+</ul>
+
+            <!-- Reid checkbox filter
             <h4>
               Sectors
             </h4>
@@ -99,7 +138,7 @@
                 </label>
               </li>
             </ul>
-            <br />
+            <br />-->
 
             <!--<h4>Custom filters and views</h4>
             <p>Take a look at the <a href='https://github.com/derekeder/FusionTable-Map-Template/wiki/Filter-examples'>wiki</a> to see how to add your own custom filters and views like:</p>
@@ -165,10 +204,10 @@
         
         $(function() {
           var myMap = new MapsLib({
-            fusionTableId:      "1JRz8AnddE4A4xsPtIZNWWPxH_n_xwQw_1XcSgi06",
-            googleApiKey:       "AIzaSyA3FQFrNr5W2OEVmuENqhb2MBB2JabdaOY",
+            fusionTableId:      "1CmfhzSxQY0WE7_4Q9MecFB533UlCK6nxCREmBmZJ",
+            googleApiKey:       "AIzaSyCVnSUfJJ_T-f8BpEeeMwNH8ey8E8xqJJA",
             censusApiKey:       "ac6b82b6abc39664978d7c30d8e9772bf34ced02",
-            locationColumn:     "geometry",
+            locationColumn:     "lat",
             map_center:         [41.8781136, -87.66677856445312],
             locationScope:      "chicago"
           });
